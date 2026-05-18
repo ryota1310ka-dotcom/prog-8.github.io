@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>河野凌太 | Portfile</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Yu Gothic", "Hiragino Sans", sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.8;
+    }
+
+    /* Header */
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      letter-spacing: 4px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #dbeafe;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: white;
+      color: #1e3a8a;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Nav */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    nav a {
+      margin: 0 16px;
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    /* Section */
+
+    section {
+      max-width: 1100px;
+      margin: 70px auto;
+      padding: 50px 35px;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    h2 {
+      font-size: 34px;
+      margin-bottom: 28px;
+      border-left: 6px solid #2563eb;
+      padding-left: 16px;
+      color: #0f172a;
+    }
+
+    /* About */
+
+    .about-box {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    /* Skills */
+
+    .skill-heading {
+      margin-top: 30px;
+      margin-bottom: 16px;
+      color: #1e3a8a;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 18px;
+    }
+
+    .skill {
+      background: #eef2ff;
+      color: #1e3a8a;
+      padding: 18px;
+      border-radius: 16px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Cards */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 26px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .card h3 {
+      color: #1e3a8a;
+      margin-bottom: 12px;
+    }
+
+    /* Hobby */
+
+    .hobby-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hobby-photo {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
+    }
+
+    .hobby-text {
+      display: grid;
+      gap: 20px;
+    }
+
+    /* Pets */
+
+    .pets-container {
+      display: grid;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .pet-card {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 28px;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 24px;
+      transition: 0.3s;
+    }
+
+    .pet-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.12);
+    }
+
+    .pet-photo {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .pet-info h3 {
+      font-size: 32px;
+      color: #1e3a8a;
+      margin-bottom: 12px;
+    }
+
+    /* Contact */
+
+    .contact {
+      text-align: center;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+    }
+
+    .contact h2 {
+      color: white;
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .contact p {
+      color: #dbeafe;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+
+    @media(max-width:800px) {
+
+      .hobby-box {
+        grid-template-columns: 1fr;
+      }
+
+      .pet-card {
+        grid-template-columns: 1fr;
+      }
+
+      .pet-photo {
+        height: 260px;
+      }
+
+    }
+
+    @media(max-width:600px) {
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px 8px;
+      }
+
+      section {
+        margin: 40px 16px;
+        padding: 35px 22px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+
+  <header>
+    <div class="hero">
+      <h1>河野 凌太</h1>
+      <p>IT業界を目指して学習中のポートフォリオサイト</p>
+
+      <a href="#about" class="btn">
+        自己紹介を見る
+      </a>
+    </div>
+  </header>
+
+  <!-- Nav -->
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+
+    <a href="#hobby">Hobby</a>
+    <a href="#pets">Pets</a>
+    <a href="#goal">Goal</a>
+
+  </nav>
+
+  <!-- About -->
+
+  <section id="about">
+
+    <h2>About</h2>
+
+    <div class="about-box">
+
+      <img src="IMG_5237.JPG" alt="プロフィール写真" class="profile-photo" />
+
+      <div class="about-text">
+
+        <p>
+          はじめまして、河野凌太です。ご覧いただきありがとうございます!
+
+        </p>
+        <p>現在、IT業界への就職・転職を目指して、
+          Web制作や基本情報技術者、AI活用 などを学習しています。</p>
+
+        <p>
+          日々誠実に物事へ取り組み、
+          周囲とのコミュニケーションを大切にしています。
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Skills -->
+
+  <section id="skills">
+
+    <h2>Skills</h2>
+
+    <h3 class="skill-heading">使用経験</h3>
+
+    <div class="skill-list">
+      <div class="skill">Excel</div>
+      <div class="skill">Word</div>
+      <div class="skill">Java</div>
+      <div class="skill">C++</div>
+
+    </div>
+
+    <h3 class="skill-heading">学習経験</h3>
+
+    <div class="skill-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">SQL</div>
+
+    </div>
+
+  </section>
+
+  <!-- Works -->
+
+
+  <!-- Hobby -->
+
+  <section id="hobby">
+
+    <h2>Hobby</h2>
+
+    <div class="hobby-box">
+
+      <img src="IMG_5030.jpg" alt="ポケモンカード" class="hobby-photo" />
+
+      <div class="hobby-text">
+
+        <div class="card">
+          <h3>ポケモンカード</h3>
+
+          <p>
+            友達と楽しく対戦しています！
+          </p>
+          <p>趣味が高じてカードショップでのアルバイトをしてました！
+            買取、販売、接客業務を担当していました。
+            商品の状態確認や在庫管理を行いながら、
+            お客様に合わせた丁寧な接客を意識して取り組んでいました。
+          </p>
+
+
+
+
+        </div>
+
+        <div class="card">
+          <h3>好きなこと</h3>
+
+          <p>
+            デッキ構築を考えることや、
+            新しいカード情報を見ることが好きです。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Pets -->
+
+  <section id="pets">
+
+    <h2>Pets</h2>
+
+    <div class="pets-container">
+
+      <div class="pet-card">
+
+        <img src="IMG_5685.jpg" alt="白猫" class="pet-photo" />
+
+        <div class="pet-info">
+
+          <h3>レオ</h3>
+
+          <p>
+            白くてふわふわな猫です。<br>
+            クールな性格で、黄色い大きい鈴がトレードマークです！
+            部屋の隅っこで人間の行動をよく観察しています( ´∀｀ )
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="pet-card">
+
+        <img src="IMG_5810.jpg" alt="犬" class="pet-photo" />
+
+        <div class="pet-info">
+
+          <h3>クウ</h3>
+
+          <p>
+            人懐っこく元気いっぱいなわんこです！<br>
+            わんこにしては珍しく散歩があまり好きじゃないみたいです(´;ω;｀)
+
+          </p>
+          そろそろトイレ覚えてくれないかなぁ（笑）
+          <p>
+
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Goal -->
+
+  <section id="goal">
+
+    <h2>Goal</h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>目指す姿</h3>
+
+        <p>
+          日進月歩で進化するIT業界の中で、
+          継続的に知識を身につけながら、
+          多くの人を支えられるエンジニアを目指しています。
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>大切にしていること</h3>
+
+        <p>
+          誠実な対応と継続的な学習を
+          大切にしています。
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+
+  <footer>
+    <p>
+      &copy; 2026 Ryota Kono. All Rights Reserved.
+    </p>
+  </footer>
+
+</body>
+
+</html>
